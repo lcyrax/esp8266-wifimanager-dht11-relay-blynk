@@ -28,7 +28,6 @@ void sendSensor()
 {
   float h = dht.readHumidity();
   float t = dht.readTemperature(); // or dht.readTemperature(true) for Fahrenheit
-
   if (isnan(h) || isnan(t)) {
     Serial.println("Failed to read from DHT sensor!");
     return;
@@ -38,7 +37,6 @@ void sendSensor()
   Blynk.virtualWrite(V5, h);
   Blynk.virtualWrite(V6, t);
 }
-
 
 void setup()
 {
@@ -52,9 +50,6 @@ void setup()
   pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output, I like blinkies.
   Blynk.begin(auth, WiFi.SSID().c_str(), WiFi.psk().c_str(), "cyrax.top", 8080);
 
-  dht.begin();
-
-  // Setup a function to be called every second
   timer.setInterval(1000L, sendSensor);
 }
 
