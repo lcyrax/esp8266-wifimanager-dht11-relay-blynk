@@ -11,7 +11,6 @@
 // Go to the Project Settings (nut icon).
 char auth[] = "4ecda56a656542f0825bb1704b711c4b";
 
-#define DHTPIN 2          // What digital pin we're connected to
 
 // Uncomment whatever type you're using!
 #define DHTTYPE DHT11     // DHT 11
